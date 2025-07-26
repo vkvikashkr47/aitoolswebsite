@@ -1,0 +1,210 @@
+/* General Body & Layout */
+body { 
+  margin: 0; 
+  font-family: Arial, sans-serif; 
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container { 
+  display: flex; 
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* Header & Footer */
+header, footer { 
+  background: #222; 
+  color: #fff; 
+  padding: 20px 20px; 
+  text-align: center; 
+}
+
+header h1 {
+  margin: 0;
+}
+
+footer {
+  margin-top: 40px;
+}
+
+.footer-links { 
+  display: flex; 
+  justify-content: center; 
+  gap: 20px; 
+  flex-wrap: wrap; 
+  font-size: 14px; 
+  margin-bottom: 10px;
+}
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Navigation */
+nav { 
+  display: flex; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+  background: #333; 
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a { 
+  color: #fff; 
+  margin: 5px 15px; 
+  text-decoration: none; 
+  white-space: nowrap;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar */
+.sidebar { 
+  width: 250px; 
+  background: #fff; 
+  padding: 20px; 
+  transition: transform 0.3s ease-in-out; 
+  border-right: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.sidebar h3 { 
+  margin-top: 0; 
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 8px 0;
+  cursor: pointer;
+}
+.sidebar ul li a:hover {
+  color: #007BFF;
+}
+
+/* Main Content */
+.content { 
+  flex: 1; 
+  padding: 0 20px; 
+}
+
+/* Tile Grid for Blog Posts */
+.tile-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px; 
+}
+
+.tile { 
+  background: #fff; 
+  padding: 20px; 
+  border: 1px solid #ddd; 
+  border-radius: 5px;
+  cursor: pointer; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.tile:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tile h3 {
+  margin-top: 0;
+  color: #007BFF;
+}
+
+/* Blog Detail View */
+.blog-detail { 
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.blog-detail h3 { color: #0056b3; }
+.blog-detail ul { padding-left: 20px; }
+.blog-detail li { margin-bottom: 10px; }
+.blog-detail button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.blog-detail button:hover {
+    background-color: #555;
+}
+
+
+/* Pagination & Buttons */
+.pagination { 
+  text-align: center; 
+  margin: 40px 0; 
+}
+.pagination button, .robot-btn {
+  margin: 0 5px; 
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.robot-btn {
+  background-color: #28a745;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+.toggle-sidebar { 
+  display: none; 
+  padding: 10px; 
+  background: #222; 
+  color: white; 
+  border: none; 
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .container { flex-direction: column; }
+  .sidebar { 
+    transform: translateX(-100%); 
+    position: fixed; 
+    z-index: 200; 
+    height: 100%; 
+    background: #fff;
+    width: 250px;
+  }
+  .sidebar.show { 
+    transform: translateX(0); 
+  }
+  .toggle-sidebar { 
+    display: block; 
+  }
+  nav {
+    justify-content: center;
+  }
+  nav div {
+    margin-left: 40px; /* Make space for hamburger icon */
+  }
+}
